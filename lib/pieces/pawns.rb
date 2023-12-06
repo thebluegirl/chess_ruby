@@ -26,6 +26,19 @@ class Pawn
     end
     possible_moves_array
   end
+
+  def move_piece
+    puts "Where would you like to move this peice to?"
+    player_response = gets.chomp.strip.downcase
+    unless find_possible_moves.include?(player_response)
+      puts "This is not a valid move. Please choose a valid move. The valid moves available with this peice are: "
+      find_possible_moves.each { |move| print "#{move} " }
+      puts
+      return move_peice
+    end
+    change_location(player_response)
+  end
+
   # protected
 
   attr_accessor :history, :current_location

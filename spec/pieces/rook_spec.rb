@@ -16,4 +16,22 @@ describe Rook do
       end
     end
   end
+
+  describe '#find_possible_moves' do
+    it 'returns an array' do
+      expect(rook.find_possible_moves).to be_an_instance_of Array
+    end
+
+    it 'returns an array of 14' do
+      expect(rook.find_possible_moves.count).to eql(14)
+    end
+
+    it 'includes vertical opposite end' do
+      expect(rook.find_possible_moves.include?('a8')).to be true
+    end
+
+    it 'includes horizontal opposite end' do
+      expect(rook.find_possible_moves.include?('h1')).to be true
+    end
+  end
 end

@@ -46,4 +46,10 @@ class Player
     end
     pieces_array
   end
+
+  attr_reader :pieces
+
+  protected
+
+
 end

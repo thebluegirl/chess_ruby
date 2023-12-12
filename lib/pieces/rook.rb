@@ -10,6 +10,8 @@ class Rook
     @current_location = new_location
   end
 
+  attr_reader :symbol
+
   # protected
 
   attr_accessor :current_location, :history

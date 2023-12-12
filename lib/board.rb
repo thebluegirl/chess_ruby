@@ -17,4 +17,9 @@ class Board
     end
     squares
   end
+
+  attr_reader :squares
+
+  # protected
+
 end

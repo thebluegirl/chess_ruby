@@ -39,7 +39,9 @@ class Pawn
     change_location(player_response)
   end
 
+  attr_reader :symbol
+
   # protected
 
-  attr_accessor :history, :current_location
+  attr_accessor :current_location, :history
 end

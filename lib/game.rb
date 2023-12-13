@@ -44,7 +44,7 @@ class Game
     print_row.call(8)
   end
 
-  def validate_selected_square(player)
+  def select_piece(player)
     piece_finder = lambda do |selected_square|
       player.pieces.each do |piece|
         return piece if piece.current_location == selected_square
@@ -55,15 +55,29 @@ class Game
     selected_square = player.select_piece
     unless @board.squares.include?(selected_square)
       puts 'This is not a valid square. Please select a valid square.'
-      return validate_selected_square(player)
+      return select_piece(player)
     end
 
     if piece_finder.call(selected_square)
       return piece_finder.call(selected_square)
     else
       puts 'You have no pieces on this square. Please select the square with the peice you would like to move.'
-      return validate_selected_square(player)
+      return select_piece(player)
+    end
+  end
+
+  def occupied_square?(square)
+    square_check = lambda do |player|
+      player.pieces.each do |piece|
+        return true if piece.current_location == square
+      end
+      false
     end
 
+    if square_check.call(@player1) || square_check.call(@player2)
+      true
+    else
+      false
+    end
   end
 end

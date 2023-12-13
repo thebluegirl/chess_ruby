@@ -49,7 +49,7 @@ class Player
 
   def select_piece
     puts 'Select the square you would like to pick a piece from'
-    player_input = gets.strip.chomp
+    player_input = gets.chomp.strip.downcase
   end
 
   attr_reader :pieces

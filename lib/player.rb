@@ -9,7 +9,7 @@ class Player
   def create_pieces
     pieces_array = []
 
-    if @player_id.downcase == 'white' || @player_id == 1
+    if @player_id.downcase == 'white'
       pieces_array << left_rook = Rook.new('♖', 'a1')
       pieces_array << left_knight = Knight.new('♘', 'b1')
       pieces_array << left_bishop = Bishop.new('♗', 'c1')
@@ -26,7 +26,7 @@ class Player
       pieces_array << pawn6 = Pawn.new('♙', 'f2')
       pieces_array << pawn7 = Pawn.new('♙', 'g2')
       pieces_array << pawn8 = Pawn.new('♙', 'h2')
-    elsif @player_id.downcase == 'black' || @player_id == 2
+    elsif @player_id.downcase == 'black'
       pieces_array << left_rook = Rook.new('♜', 'a8')
       pieces_array << left_knight = Knight.new('♞', 'b8')
       pieces_array << left_bishop = Bishop.new('♝', 'c8')
@@ -45,6 +45,11 @@ class Player
       pieces_array << pawn8 = Pawn.new('♟︎', 'h7')
     end
     pieces_array
+  end
+
+  def select_piece
+    puts 'Select the square you would like to pick a piece from'
+    player_input = gets.strip.chomp
   end
 
   attr_reader :pieces

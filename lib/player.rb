@@ -54,7 +54,7 @@ class Player
 
   attr_reader :pieces
 
-  protected
+  # protected
 
 
 end

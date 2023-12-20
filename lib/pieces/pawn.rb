@@ -33,10 +33,8 @@ class Pawn
         print "#{move} "
       end
       puts
-      move_piece
-      return
+      return move_piece
     end
-    change_location(square)
   end
 
   attr_reader :symbol

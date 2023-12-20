@@ -29,6 +29,7 @@ class Game
           end
         end
       end
+      print number.to_s
       puts
     end
 
@@ -42,6 +43,8 @@ class Game
     print_row.call(6)
     print_row.call(7)
     print_row.call(8)
+    print '  a  b  c  d  e  f  g  h '
+    puts
   end
 
   def select_piece(player)

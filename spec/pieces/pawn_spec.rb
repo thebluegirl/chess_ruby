@@ -1,7 +1,7 @@
 require './lib/pieces/pawn'
 
-describe Pawn do
-  subject(:pawn) { described_class.new('♙', 'b2') }
+describe WhitePawn do
+  subject(:pawn) { described_class.new('b2') }
 
   describe '#change_location' do
     context 'when method is run with a valid argument provided' do
@@ -74,6 +74,83 @@ describe Pawn do
         expect(pawn.find_possible_moves.include?('b5')).to be true
       end
 
+    end
+  end
+end
+
+
+describe BlackPawn do
+  subject(:pawn) { described_class.new('c7') }
+  describe '#change_location' do
+    context 'when method is run with a valid argument provided' do
+      it 'changes the location of the piece' do
+        new_location = 'c5'
+        expect{ pawn.change_location(new_location) }.to change{ pawn.current_location }.from('c7').to(new_location)
+      end
+
+      it 'adds the previous location to the peice history' do
+        new_location = 'c5'
+        pawn.change_location(new_location)
+        expect(pawn.history.include?('c7')).to be true
+      end
+    end
+
+    context 'when method has been run multiple times' do
+      before do
+        pawn.change_location('c5')
+        pawn.change_location('c4')
+      end
+
+      it 'stores the history' do
+        expect(pawn.history.count).to eql(2)
+      end
+
+      it 'contains first move history' do
+        expect(pawn.history.include?('c7')).to be true
+      end
+
+      it 'contains second move history' do
+        expect(pawn.history.include?('c5')).to be true
+      end
+
+      it 'changes the location of the piece' do
+        new_location = 'c3'
+        expect{ pawn.change_location(new_location) }.to change{ pawn.current_location }.from('c4').to(new_location)
+      end
+    end
+  end
+
+  describe '#find_possible_moves' do
+    context 'when pawn has not been moved' do
+      it 'returns an array' do
+        expect(pawn.find_possible_moves).to be_an_instance_of Array
+      end
+
+      it 'returns two possible options' do
+        expect(pawn.find_possible_moves.count).to eql(2)
+      end
+
+      it 'includes c5' do
+        expect(pawn.find_possible_moves.include?('c5')).to be true
+      end
+    end
+
+    context 'when pawn has been moved' do
+      before do
+        pawn.change_location('c5')
+      end
+
+      it 'returns an array' do
+        expect(pawn.find_possible_moves).to be_an_instance_of Array
+      end
+
+      it 'returns two possible options' do
+        expect(pawn.find_possible_moves.count).to eql(1)
+      end
+
+      it 'includes c4' do
+        expect(pawn.find_possible_moves.include?('c4')).to be true
+      end
     end
   end
 end

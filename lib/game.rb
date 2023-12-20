@@ -3,8 +3,8 @@ require_relative 'board'
 
 class Game
   def initialize
-    @player1 = Player.new('white')
-    @player2 = Player.new('black')
+    @player1 = Player.new('White')
+    @player2 = Player.new('Black')
     @board = Board.new
   end
 
@@ -69,6 +69,23 @@ class Game
     end
   end
 
+  def move_piece(player)
+    puts "#{player.player_id}'s turn"
+    piece = select_piece(player)
+    piece.change_location(piece.move_piece)
+  end
+
+  def player_turn(player)
+    print_board
+    move_piece(player)
+  end
+
+  def players_turn
+    player_turn(@player1)
+    player_turn(@player2)
+  end
+
+
   def occupied_square?(square)
     square_check = lambda do |player|
       player.pieces.each do |piece|
@@ -83,4 +100,8 @@ class Game
       false
     end
   end
+
+  # protected
+
+  attr_accessor :player1, :player2
 end

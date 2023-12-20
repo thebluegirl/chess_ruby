@@ -10,7 +10,7 @@ describe Player do
       end
 
       it 'has 8 pawns' do
-        pawn_count = player.create_pieces.count { |piece| piece.class == Pawn}
+        pawn_count = player.create_pieces.count { |piece| piece.class == WhitePawn}
         expect(pawn_count).to eql(8)
       end
 
@@ -43,7 +43,7 @@ describe Player do
       end
 
       it 'has 8 pawns' do
-        pawn_count = player.create_pieces.count { |piece| piece.class == Pawn}
+        pawn_count = player.create_pieces.count { |piece| piece.class == BlackPawn}
         expect(pawn_count).to eql(8)
       end
 

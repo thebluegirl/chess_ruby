@@ -18,14 +18,14 @@ class Player
       pieces_array << right_bishop = Bishop.new('♗', 'f1')
       pieces_array << left_knight = Knight.new('♘', 'g1')
       pieces_array << right_rook = Rook.new('♖', 'h1')
-      pieces_array << pawn1 = Pawn.new('♙', 'a2')
-      pieces_array << pawn2 = Pawn.new('♙', 'b2')
-      pieces_array << pawn3 = Pawn.new('♙', 'c2')
-      pieces_array << pawn4 = Pawn.new('♙', 'd2')
-      pieces_array << pawn5 = Pawn.new('♙', 'e2')
-      pieces_array << pawn6 = Pawn.new('♙', 'f2')
-      pieces_array << pawn7 = Pawn.new('♙', 'g2')
-      pieces_array << pawn8 = Pawn.new('♙', 'h2')
+      pieces_array << pawn1 = WhitePawn.new('a2')
+      pieces_array << pawn2 = WhitePawn.new('b2')
+      pieces_array << pawn3 = WhitePawn.new('c2')
+      pieces_array << pawn4 = WhitePawn.new('d2')
+      pieces_array << pawn5 = WhitePawn.new('e2')
+      pieces_array << pawn6 = WhitePawn.new('f2')
+      pieces_array << pawn7 = WhitePawn.new('g2')
+      pieces_array << pawn8 = WhitePawn.new('h2')
     elsif @player_id.downcase == 'black'
       pieces_array << left_rook = Rook.new('♜', 'a8')
       pieces_array << left_knight = Knight.new('♞', 'b8')
@@ -35,14 +35,14 @@ class Player
       pieces_array << right_bishop = Bishop.new('♝', 'f8')
       pieces_array << left_knight = Knight.new('♞', 'g8')
       pieces_array << right_rook = Rook.new('♜', 'h8')
-      pieces_array << pawn1 = Pawn.new('♟︎', 'a7')
-      pieces_array << pawn2 = Pawn.new('♟︎', 'b7')
-      pieces_array << pawn3 = Pawn.new('♟︎', 'c7')
-      pieces_array << pawn4 = Pawn.new('♟︎', 'd7')
-      pieces_array << pawn5 = Pawn.new('♟︎', 'e7')
-      pieces_array << pawn6 = Pawn.new('♟︎', 'f7')
-      pieces_array << pawn7 = Pawn.new('♟︎', 'g7')
-      pieces_array << pawn8 = Pawn.new('♟︎', 'h7')
+      pieces_array << pawn1 = BlackPawn.new('a7')
+      pieces_array << pawn2 = BlackPawn.new('b7')
+      pieces_array << pawn3 = BlackPawn.new('c7')
+      pieces_array << pawn4 = BlackPawn.new('d7')
+      pieces_array << pawn5 = BlackPawn.new('e7')
+      pieces_array << pawn6 = BlackPawn.new('f7')
+      pieces_array << pawn7 = BlackPawn.new('g7')
+      pieces_array << pawn8 = BlackPawn.new('h7')
     end
     pieces_array
   end
@@ -52,7 +52,7 @@ class Player
     player_input = gets.chomp.strip.downcase
   end
 
-  attr_reader :pieces
+  attr_reader :pieces, :player_id
 
   # protected
 

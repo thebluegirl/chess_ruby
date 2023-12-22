@@ -20,7 +20,7 @@ describe Player do
       end
 
       it 'has 2 rooks' do
-        rook_count = player.create_pieces.count { |piece| piece.class == Rook}
+        rook_count = player.create_pieces.count { |piece| piece.class == WhiteRook}
         expect(rook_count).to eql(2)
       end
 
@@ -53,7 +53,7 @@ describe Player do
       end
 
       it 'has 2 rooks' do
-        rook_count = player.create_pieces.count { |piece| piece.class == Rook}
+        rook_count = player.create_pieces.count { |piece| piece.class == BlackRook}
         expect(rook_count).to eql(2)
       end
 

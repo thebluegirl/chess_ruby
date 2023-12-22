@@ -72,7 +72,8 @@ class Game
   def move_piece(player)
     puts "#{player.player_id}'s turn"
     piece = select_piece(player)
-    piece.change_location(piece.move_piece)
+    new_location = piece.move_piece
+    piece.change_location(new_location)
   end
 
   def player_turn(player)
@@ -84,7 +85,6 @@ class Game
     player_turn(@player1)
     player_turn(@player2)
   end
-
 
   def occupied_square?(square)
     square_check = lambda do |player|

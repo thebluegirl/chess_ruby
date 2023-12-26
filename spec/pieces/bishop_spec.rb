@@ -1,5 +1,11 @@
 require './lib/pieces/bishop'
 
-describe Bishop do
-  subject(:bishop) { described_class.new('♗', 'c1') }
+describe WhiteBishop do
+  subject(:bishop) { described_class.new('c1') }
+
+end
+
+describe BlackBishop do
+  subject(:bishop) { described_class.new('f8') }
+
 end

@@ -1,4 +1,8 @@
 require_relative '../board'
+require_relative 'queen'
+require_relative 'knight'
+require_relative 'bishop'
+require_relative 'rook'
 
 class WhitePawn
   def initialize(default_location)
@@ -42,6 +46,20 @@ class WhitePawn
       return move_piece
     end
     return square
+  end
+
+  def end_of_field?
+    if @current_location.end_with?('8')
+      puts "This pawn can be upgraded. Would you like to upgrade it?"
+      response = gets.chomp.downcase
+      if response == 'no' || response == 'n'
+        return
+      elsif response == 'yes' || response == 'y'
+        upgrade
+      end
+    else
+      false
+    end
   end
 
   attr_reader :symbol
@@ -93,10 +111,6 @@ class BlackPawn
       return move_piece
     end
     return square
-  end
-
-  def upgrade_possible?
-    @current_location.end_with?('7') ? true : false
   end
 
   attr_reader :symbol

@@ -15,7 +15,7 @@ describe Player do
       end
 
       it 'has 1 queen and 1 king' do
-        royal_count = player.create_pieces.count { |piece| piece.class == King || piece.class == Queen }
+        royal_count = player.create_pieces.count { |piece| piece.class == WhiteKing || piece.class == WhiteQueen }
         expect(royal_count).to eql(2)
       end
 
@@ -25,12 +25,12 @@ describe Player do
       end
 
       it 'has 2 bishops' do
-        bishop_count = player.create_pieces.count { |piece| piece.class == Bishop}
+        bishop_count = player.create_pieces.count { |piece| piece.class == WhiteBishop}
         expect(bishop_count).to eql(2)
       end
 
       it 'has 2 knights' do
-        knight_count = player.create_pieces.count { |piece| piece.class == Knight}
+        knight_count = player.create_pieces.count { |piece| piece.class == WhiteKnight}
         expect(knight_count).to eql(2)
       end
     end
@@ -48,7 +48,7 @@ describe Player do
       end
 
       it 'has 1 queen and 1 king' do
-        royal_count = player.create_pieces.count { |piece| piece.class == King || piece.class == Queen }
+        royal_count = player.create_pieces.count { |piece| piece.class == BlackKing || piece.class == BlackQueen }
         expect(royal_count).to eql(2)
       end
 
@@ -58,12 +58,12 @@ describe Player do
       end
 
       it 'has 2 bishops' do
-        bishop_count = player.create_pieces.count { |piece| piece.class == Bishop}
+        bishop_count = player.create_pieces.count { |piece| piece.class == BlackBishop}
         expect(bishop_count).to eql(2)
       end
 
       it 'has 2 knights' do
-        knight_count = player.create_pieces.count { |piece| piece.class == Knight}
+        knight_count = player.create_pieces.count { |piece| piece.class == BlackKnight}
         expect(knight_count).to eql(2)
       end
     end

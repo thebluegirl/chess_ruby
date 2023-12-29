@@ -26,7 +26,6 @@ class WhiteRook
   def move_piece
     puts 'Where would you like to move this piece to?'
     square = gets.chomp.strip.downcase
-    p find_possible_moves
     unless find_possible_moves.include?(square)
       puts 'This is not a valid move for this piece. The possible moves you can make are: '
       find_possible_moves.each do |move|
@@ -71,7 +70,6 @@ class BlackRook
   def move_piece
     puts 'Where would you like to move this piece to?'
     square = gets.chomp.strip.downcase
-    p find_possible_moves
     unless find_possible_moves.include?(square)
       puts 'This is not a valid move for this piece. The possible moves you can make are: '
       find_possible_moves.each do |move|
